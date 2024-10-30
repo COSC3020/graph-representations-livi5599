@@ -17,6 +17,10 @@ most important part. Add your answer to this markdown file.
 
 The runtime complexity is O(n^2).  This is because of the two for loops that iterate over each row and each column.  The runtime complexity depends only on the number of vertices since even if there is or isn't an edge, every row and column are checked, meaning edges have no affect on the number of iterations.
 
+I recieved help from Ishita's repository and ChatGPT.  I had no clue with where to begin, so I looked at a previous student Ishita's repository to get a basic idea of what it was that I had to do.  I then used ChatGPT to check my work after attempting to write the code.  At first, I didn't think to create neighborList, so ChatGPT gave me that idea.  And when I first added neighborList, I had it defined outside of the outer for loop, so ChatGPT corrected that.  And in the if statement, I originally had neighborList.push(adjMatrix[column]), but ChatGPT told me to change that to what I have now so that it isn't pushing the entire matrix column.
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models.  All of the work is my own, except where stated otherwise.  I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
+
 ## Bonus
 
 Implement a function to convert an adjacency list to an adjacency matrix and
