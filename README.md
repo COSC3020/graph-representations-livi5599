@@ -15,6 +15,8 @@ depend on the number of vertices, the number of edges, or both?
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
 
+The runtime complexity is O(n^2).  This is because of the two for loops that iterate over each row and each column.  The runtime complexity depends only on the number of vertices since even if there is or isn't an edge, every row and column are checked, meaning edges have no affect on the number of iterations.
+
 ## Bonus
 
 Implement a function to convert an adjacency list to an adjacency matrix and
