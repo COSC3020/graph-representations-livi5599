@@ -25,3 +25,66 @@ I certify that I have listed all sources used to complete this exercise, includi
 
 Implement a function to convert an adjacency list to an adjacency matrix and
 analyze it as above.
+
+----------
+
+Here is my explanation as to why the work I submitted was mostly my work.  As stated in the README of the pancake sort assignment, I understand that this is a very long explanation, but I provided this so as to show that the work is indeed mine.
+
+I received help on this assignment from a previous student Ishita’s repository and ChatGPT.  I looked at Ishita’s repository, as I had no clue where to begin.  After skimming her code, I learned that I need to iterate through the number of rows and the number of columns of the adjacency matrix.
+
+I then wrote this code:
+
+function convertToAdjList(adjMatrix) {
+    let adjList = [];
+    for (row = 0; row <= adjMatrix.length; row++) {
+        for (column = 0; column <= adjMatrix.length; column++) {
+            if (adjMatrix[row][column] == 1) {
+                adjMatrix.push(adjMatrix[row][column]);    
+            }
+        }
+    }
+    
+    return adjList; 
+}
+
+I gave this code to ChatGPT to check if I was on the right track or not.  I also told it that I didn’t want the answer, just guidance.  It responded, saying that I need to create a list that can store node neighbors which I can then push into adjList, creating the proper adjacency list structure.
+
+I adjusted my code so that it looked like this:
+
+function convertToAdjList(adjMatrix) {
+    let adjList = [];
+    let neighborList = [];
+    for (row = 0; row < adjMatrix.length; row++) {
+        for (column = 0; column < adjMatrix.length; column++) {
+            if (adjMatrix[row][column] == 1) {
+                neighborList.push(adjMatrix[column]);    
+            }
+        }
+        adjList.push(neighborList);
+    }
+    
+    return adjList;
+ 
+}
+
+I did the same as before; I gave my adjusted code to ChatGPT for feedback on if I was closer to the correct implementation or not.  Also, as before, I told it to not give me the answer, but guidance towards the answer.  It responded, saying that I need to move my definition of neighborList to the inside of the outer loop so that it resets for each new vertex.  It also said that I should replace neighborList.push(adjMatrix[column]) with neighborList.push(column) to store only the index of each neighbor instead of the entire column array.  After these adjustments, I came up with the code that I submitted.
+
+For the runtime analysis, I came up with these runtimes for each line of code:
+
+function convertToAdjList(adjMatrix) {
+    let adjList = []; //O(1)
+    for (row = 0; row < adjMatrix.length; row++) { //runs n times
+        let neighborList = []; //O(1)
+        for (column = 0; column < adjMatrix.length; column++) { //runs n times
+            if (adjMatrix[row][column] == 1) {
+                neighborList.push(column); //O(1) -> O(n^2)  
+            }
+        }
+        adjList.push(neighborList); //O(1)
+    }
+    return adjList; //O(1)
+}
+
+This led me to the conclusion that the overall runtime complexity is O(n^2).  However, I was unsure of my answer for whether the complexity depended on the number of vertices, the number of edges, or both, so I asked ChatGPT if my answer was correct.  I originally thought that it would depend on both the number of vertices and the number of edges since both for loops come into play.  ChatGPT then said that the complexity depends primarily on the number of vertices since edges don’t alter the fundamental structure of the algorithm, which is focused on iterating over every possible vertex pair. 
+
+I believe this is a valid explanation on why the work I submitted was mostly my work.  If I remember correctly, we were told that we could look at other students’ repositories for inspiration and guidance as long as we didn’t simply copy their work and claim it as ours.  And I also believe that the questions I asked ChatGPT and the responses it gave me are similar to if I were to ask Ali the same questions.  However, I understand that in the future if I have a guess on what the answer is, I should commit it and check with you directly so that you are able to see all of the work I am doing.
