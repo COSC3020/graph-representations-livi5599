@@ -1,13 +1,12 @@
-function convertToAdjList(adjMatrix) {
-    let adjList = [];
-    for (row = 0; row < adjMatrix.length; row++) {
-        let neighborList = [];
-        for (column = 0; column < adjMatrix.length; column++) {
-            if (adjMatrix[row][column] == 1) {
-                neighborList.push(column);    
-            }
-        }
-        adjList.push(neighborList);
+function convertToAdjMatrix(adjList) {
+    let adjMatrix = [];
+    for (node = 0; node < adjList.length; node++) {
+        adjMatrix.push(Array(adjList.length).fill(0));
     }
-    return adjList;
+    for (vertex = 0; vertex < adjList.length; vertex++) {
+        for (neighbor = 0; neighbor < adjList[vertex].length; neighbor++) {
+            adjMatrix[vertex][(adjList[vertex][neighbor])] = 1;
+        }
+    }
+    return adjMatrix;
 }
