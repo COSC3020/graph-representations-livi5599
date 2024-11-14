@@ -10,3 +10,17 @@ function convertToAdjMatrix(adjList) {
     }
     return adjMatrix;
 }
+
+function convertToAdjList(adjMatrix) {
+    let adjList = []; //O(1)
+    for (row = 0; row < adjMatrix.length; row++) { //runs n times
+        let neighborList = []; //O(1)
+        for (column = 0; column < adjMatrix.length; column++) { //runs n times
+            if (adjMatrix[row][column] == 1) {
+                neighborList.push(column); //O(1) -> O(n^2)  
+            }
+        }
+        adjList.push(neighborList); //O(1)
+    }
+    return adjList; //O(1)
+}
