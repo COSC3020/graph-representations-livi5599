@@ -26,9 +26,17 @@ I certify that I have listed all sources used to complete this exercise, includi
 Implement a function to convert an adjacency list to an adjacency matrix and
 analyze it as above.
 
+Runtime analysis:
+
+The runtime complexity is O(n^2), where n is the number of vertices in the graph.  This is because all of the for loops in the code have a runtime of O(n^2), as the first for loop iterates over all n vertices of the graph and fills the matrix with n X n vertices, and the nested for loops each run n times since they also are iterating over all n vertices, resulting in the combined runtime of O(n^2).  The runtime complexity depends only on the number of vertices, as each vertex will be checked whether there's an edge or not.
+
+I did all of the work myself except when determining how to write one line.  The line was line 8.  I was unsure if the line should be written how it is now, adjMatrix[vertex][adjList[vertex][neighbor]] = 1, or if it should be written as adjMatrix[vertex][(adjList[vertex][neighbor] - 1)] = 1, so I asked ChatGPT if the values in an adjacency list are treated as actual values or as index values, and I used its response (index values) to determine that there is no -1 necessary in the line of code.
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models.  All of the work is my own, except where stated otherwise.  I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
+
 ----------
 
-Here is my explanation as to why the work I submitted was mostly my work.  As stated in the README of the pancake sort assignment, I understand that this is a very long explanation, but I provided this so as to show that the work is indeed mine.
+Here is my explanation as to why the work I submitted for adjMatrix -> adjList was mostly my work.  As stated in the README of the pancake sort assignment, I understand that this is a very long explanation, but I provided this so as to show that the work is indeed mine.
 
 I received help on this assignment from a previous student Ishita’s repository and ChatGPT.  I looked at Ishita’s repository, as I had no clue where to begin.  After skimming her code, I learned that I need to iterate through the number of rows and the number of columns of the adjacency matrix.
 
