@@ -5,7 +5,7 @@ function convertToAdjMatrix(adjList) {
     }
     for (vertex = 0; vertex < adjList.length; vertex++) { //runs n times
         for (neighbor = 0; neighbor < adjList[vertex].length; neighbor++) { //runs n times
-            adjMatrix[vertex][(adjList[vertex][neighbor])] = 1; //O(n^2)
+            adjMatrix[vertex][adjList[vertex][neighbor]] = 1; //O(n^2)
         }
     }
     return adjMatrix; //O(1)
