@@ -1,10 +1,14 @@
 const fs = require('fs');
 const jsc = require('jsverify');
 
-eval(fs.readFileSync('code.js')+'');
+eval(fs.readFileSync('bonus.js')+'');
 
 const test =
     jsc.forall("array (array nat)", function(list) {
+        list = list.map(sublist =>
+            sublist.filter(neighbor => neighbor >= 0 && neighbor < list.length)
+        );
+        
         var max = list.length - 1;
         var expectedMatrix = [];
         for (var i = 0; i <= max; i++) {
