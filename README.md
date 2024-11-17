@@ -32,6 +32,8 @@ The runtime complexity is O(n^2), where n is the number of vertices in the graph
 
 I did all of the work myself except when determining how to write one line.  The line was line 8.  I was unsure if the line should be written how it is now, adjMatrix[vertex][adjList[vertex][neighbor]] = 1, or if it should be written as adjMatrix[vertex][(adjList[vertex][neighbor] - 1)] = 1, so I asked ChatGPT if the values in an adjacency list are treated as actual values or as index values, and I used its response (index values) to determine that there is no -1 necessary in the line of code.
 
+For the test file, I edited your given test file for the adjMatrix -> adjList and used ChatGPT to help explain what your test file was doing and used it to help me write my test file.
+
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models.  All of the work is my own, except where stated otherwise.  I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
 ----------
