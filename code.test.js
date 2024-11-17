@@ -1,7 +1,7 @@
 const fs = require('fs');
 const jsc = require('jsverify');
 
-eval(fs.readFileSync('bonus.js')+'');
+eval(fs.readFileSync('code.js')+'');
 
 const test =
     jsc.forall("array (array nat)", function(list) {
